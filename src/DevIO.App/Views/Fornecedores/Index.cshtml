@@ -1,25 +1,22 @@
 ﻿@model IEnumerable<DevIO.App.ViewModels.FornecedorViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Fornecedores";
 }
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-info text-light" asp-action="Create">Novo Fornecedor</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-hover">
+    <thead class="bg-dark text-light">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Documento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TipoFornecedor)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ativo)
@@ -37,15 +34,12 @@
                 @Html.DisplayFor(modelItem => item.Documento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TipoFornecedor)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Ativo)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            <td class="d-flex justify-content-end">
+                <a class="btn btn-info mx-1" asp-action="Details" asp-route-id="@item.Id"><span class="fa fa-search text-light"></span></a> 
+                <a class="btn btn-warning mx-1" asp-action="Edit" asp-route-id="@item.Id"><span class="fa fa-pencil text-light"></span></a> 
+                <a class="btn btn-danger mx-1" asp-action="Delete" asp-route-id="@item.Id"><span class="fa fa-trash text-light"></span></a>
             </td>
         </tr>
 }

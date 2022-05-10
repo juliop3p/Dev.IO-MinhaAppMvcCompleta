@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using DevIO.App.Extensions;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace DevIO.App.ViewModels
@@ -27,6 +28,7 @@ namespace DevIO.App.ViewModels
         public IFormFile ImagemUpload { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]
+        [Moeda]
         public decimal Valor { get; set; }
 
         [ScaffoldColumn(false)]

@@ -23,3 +23,7 @@ file,
 textarea {
     max-width: 400px;
 }
+
+.form-group {
+    margin-bottom: 16px;
+}

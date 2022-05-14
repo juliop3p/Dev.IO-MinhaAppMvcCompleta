@@ -1,10 +1,12 @@
 using DevIO.App.Data;
+using DevIO.App.Extensions;
 using DevIO.Business.Interfaces;
 using DevIO.Data.Context;
 using DevIO.Data.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
@@ -29,6 +31,7 @@ builder.Services.AddScoped<MeuDbContext>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
 builder.Services.AddScoped<IFornecedorRepository, FornecedorRepository>();
 builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+builder.Services.AddSingleton<IValidationAttributeAdapterProvider, MoedaValidatorAttributeAdapterProvider>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
@@ -48,6 +51,7 @@ builder.Services.AddMvc(o =>
 
     o.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
 });
+
 
 var app = builder.Build();
 
